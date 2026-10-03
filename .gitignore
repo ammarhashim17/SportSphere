@@ -1,0 +1,31 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Expo
+.expo/
+web-build/
+dist/
+
+# Native builds
+/android/
+/ios/
+
+# Environment
+.env
+.env*.local
+!.env.example
+
+# macOS / Windows system files
+.DS_Store
+*.pem
+Thumbs.db
+
+# Cache
+.cache/
+
+# Drizzle migrations must NOT be ignored (tracked in git)
+!drizzle/
