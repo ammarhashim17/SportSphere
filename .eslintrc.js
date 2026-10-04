@@ -9,6 +9,15 @@ module.exports = {
     'node_modules',
     '*.config.js',
   ],
+  settings: {
+    'import/resolver': {
+      typescript: true,
+      node: true,
+    },
+  },
+  rules: {
+    'import/no-unresolved': ['error', { ignore: ['@expo/vector-icons'] }],
+  },
   overrides: [
     {
       files: ['src/core/**/*.{ts,tsx}'],

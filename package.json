@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.2",
+    "@expo/vector-icons": "^15.0.3",
     "@gorhom/bottom-sheet": "^5.2.14",
     "@hookform/resolvers": "^5.9.1",
     "@react-native-async-storage/async-storage": "2.2.0",
@@ -66,6 +67,7 @@
     "drizzle-kit": "^0.31.11",
     "eslint": "^8.57.1",
     "eslint-config-expo": "^57.0.2",
+    "eslint-import-resolver-typescript": "^4.4.5",
     "husky": "^9.1.7",
     "jest": "^30.5.2",
     "jest-expo": "^57.0.5",
