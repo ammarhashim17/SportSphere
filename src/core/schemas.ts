@@ -51,9 +51,9 @@ export const playerSchema = z.object({
   battingStyle: z.enum(['right', 'left']).optional().nullable(),
   bowlingStyle: z.string().trim().max(50).optional().nullable(),
   dateOfBirth: z.string().optional().nullable(),
-  jerseyNo: z.coerce.number().int().min(0).max(999).optional().nullable(),
-  isCaptain: z.boolean().default(false),
-  isViceCaptain: z.boolean().default(false),
+  jerseyNo: z.number().int().min(0).max(999).optional().nullable(),
+  isCaptain: z.boolean().optional(),
+  isViceCaptain: z.boolean().optional(),
   photoUrl: z.string().url().optional().nullable(),
 });
 export type PlayerForm = z.infer<typeof playerSchema>;

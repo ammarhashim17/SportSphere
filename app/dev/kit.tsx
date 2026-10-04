@@ -1,9 +1,8 @@
 import { useRef, useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { type BottomSheetModal } from '@gorhom/bottom-sheet';
 import {
   Text,
-  Icon,
   Card,
   Button,
   SyncPill,

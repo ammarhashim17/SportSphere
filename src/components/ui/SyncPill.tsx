@@ -3,16 +3,18 @@ import { colors } from '@/theme/colors';
 import { PulseDot } from './PulseDot';
 import { Text } from './Text';
 
-export type SyncStatus = 'synced' | 'syncing' | 'offline';
+export type SyncStatus = 'synced' | 'syncing' | 'offline' | 'error';
 const DOT: Record<SyncStatus, string> = {
   synced: colors['primary-container'],
   syncing: colors['secondary-container'],
   offline: colors.outline,
+  error: colors.error,
 };
 const LABEL: Record<SyncStatus, string> = {
   synced: 'Synced',
   syncing: 'Syncing',
   offline: 'Offline',
+  error: 'Error',
 };
 
 export function SyncPill({ status, label }: { status: SyncStatus; label?: string }) {
