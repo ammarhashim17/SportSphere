@@ -1,0 +1,2 @@
+export PATH="/c/Users/User/AppData/Local/Programs/nodejs:$PATH"
+npx lint-staged && npm run typecheck

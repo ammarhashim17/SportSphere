@@ -1,0 +1,34 @@
+module.exports = {
+  extends: ['expo'],
+  ignorePatterns: [
+    '/drizzle',
+    '/design',
+    '/android',
+    '/ios',
+    '/dist',
+    'node_modules',
+    '*.config.js',
+  ],
+  overrides: [
+    {
+      files: ['src/core/**/*.{ts,tsx}'],
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              {
+                group: ['react', 'react-native', 'react-native-*', 'expo', 'expo-*', '@expo/*'],
+                message: 'src/core must stay pure TypeScript.',
+              },
+              {
+                group: ['@/db/*', '@/lib/*', '@/features/*', '@/sync/*', '@/components/*'],
+                message: 'src/core must not depend on app layers.',
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+};

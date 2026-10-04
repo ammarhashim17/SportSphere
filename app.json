@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "ScoreSphere",
+    "slug": "scoresphere",
+    "scheme": "scoresphere",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "icon": "./assets/images/icon.png",
+    "ios": { "bundleIdentifier": "com.scoresphere.app", "supportsTablet": false },
+    "android": { "package": "com.scoresphere.app" },
+    "experiments": { "typedRoutes": true },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-sqlite",
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "ScoreSphere needs access to your photos to set team logos and player pictures."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "backgroundColor": "#FFFFFF",
+          "imageWidth": 160
+        }
+      ]
+    ]
+  }
+}
