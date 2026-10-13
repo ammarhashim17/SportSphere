@@ -1,12 +1,16 @@
 import { View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Button, Card, Icon, StatusPill, TeamCrest, Text } from '@/components/ui';
-import { STITCH_HOME_FIXTURES } from '@/fixtures/stitchHome';
+import type { HomeLiveMatch } from '@/features/matches/useHomeLiveMatch';
 import { colors } from '@/theme/colors';
 
-export function LiveMatchCard() {
+type Props = {
+  match: HomeLiveMatch;
+};
+
+export function LiveMatchCard({ match }: Props) {
   const router = useRouter();
-  const match = STITCH_HOME_FIXTURES.liveMatch;
+  const matchId = (match as { id?: string }).id;
   const batter1 = match.batters[0] ?? { name: 'R. Sharma', runs: '42*', balls: '29' };
   const batter2 = match.batters[1] ?? { name: 'M. Ali', runs: '18', balls: '12' };
 
@@ -137,7 +141,8 @@ export function LiveMatchCard() {
       <Button
         label="Resume Scoring Console"
         icon="edit_note"
-        onPress={() => router.push('/(app)/(tabs)/matches' as never)}
+        disabled={!matchId}
+        onPress={() => matchId && router.push(`/match/${matchId}/score` as never)}
         full
       />
     </Card>

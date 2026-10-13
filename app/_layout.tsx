@@ -29,6 +29,7 @@ export default function RootLayout() {
     Inter_600SemiBold,
     Inter_700Bold,
     MaterialSymbolsOutlined: require('../assets/fonts/MaterialSymbolsOutlined.ttf'),
+    MaterialSymbolsFilled: require('../assets/fonts/MaterialSymbolsFilled.ttf'),
   });
   const { success: dbReady, error: dbError } = useMigrations(db, migrations);
   const init = useAuthStore((s) => s.init);

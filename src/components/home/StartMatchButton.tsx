@@ -9,7 +9,7 @@ export function StartMatchButton() {
 
   return (
     <Pressable
-      onPress={() => router.push('/(app)/(tabs)/matches' as never)}
+      onPress={() => router.push('/match/new' as never)}
       className="w-full active:opacity-95"
     >
       <LinearGradient

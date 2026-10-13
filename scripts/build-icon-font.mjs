@@ -72,4 +72,25 @@ execSync(
   `pyftsubset .cache/instance.ttf --unicodes="${unicodes.join(',')}" --output-file=assets/fonts/MaterialSymbolsOutlined.ttf --no-hinting`,
   { stdio: 'inherit' },
 );
-console.log(`Built icon font with ${unicodes.length} icons.`);
+
+const filled = new Set();
+for (const file of walk('design/stitch').filter((f) => f.endsWith('code.html'))) {
+  const html = readFileSync(file, 'utf8');
+  for (const m of html.matchAll(/<span[^>]*material-symbols-outlined[^>]*FILL[^>]*>\s*([a-z0-9_]+)\s*</g)) {
+    filled.add(m[1]);
+  }
+}
+const filledUnicodes = [...filled]
+  .filter((n) => codepoints.get(n))
+  .map((n) => `U+${codepoints.get(n).toUpperCase()}`);
+
+execSync(
+  'fonttools varLib.instancer ".cache/MaterialSymbolsOutlined.ttf" FILL=1 wght=400 GRAD=0 opsz=24 -o .cache/instance-fill.ttf',
+  { stdio: 'inherit' },
+);
+execSync(
+  `pyftsubset .cache/instance-fill.ttf --unicodes="${filledUnicodes.join(',')}" --output-file=assets/fonts/MaterialSymbolsFilled.ttf --no-hinting`,
+  { stdio: 'inherit' },
+);
+
+console.log(`Built icon font with ${unicodes.length} outlined icons and ${filledUnicodes.length} filled icons.`);

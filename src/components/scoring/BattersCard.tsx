@@ -95,7 +95,7 @@ export function BattersCard({ state, strikerId, nonStrikerId, names, children }:
             <Text variant="body-md" weight="bold" numberOfLines={1} className="shrink">
               {shortName(names(strikerId))}
             </Text>
-            <Icon name="sports_cricket" size={14} color={colors.primary} />
+            <Icon name="sports_cricket" size={14} color={colors.primary} filled />
           </View>
           <Stats values={row(strikerId)} strong />
         </View>
