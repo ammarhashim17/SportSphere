@@ -2,8 +2,9 @@ import * as Crypto from 'expo-crypto';
 import { toServer } from '@/core/caseMap';
 import type { Tx } from './client';
 import { syncOutbox } from './schema';
+import type { SyncEntity } from '@/sync/registry';
 
-export type SyncEntity = 'teams' | 'players' | 'team_players';
+export type { SyncEntity } from '@/sync/registry';
 
 /** Call INSIDE the same transaction as the local write. Always pass the FULL row (the server upsert needs every NOT NULL column). */
 export async function enqueue(

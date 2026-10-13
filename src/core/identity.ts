@@ -32,3 +32,17 @@ export function readableTextColor(hex: string): '#FFFFFF' | '#0B1C30' {
   const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
   return L > 0.4 ? '#0B1C30' : '#FFFFFF';
 }
+
+/** "Rohit Sharma" → "R. Sharma"; "Sharma" → "Sharma"; "Rohit Gurunath Sharma" → "R. Sharma". */
+export function shortName(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return '';
+  if (parts.length === 1) return parts[0] ?? '';
+  return `${(parts[0] ?? '')[0]?.toUpperCase() ?? ''}. ${parts[parts.length - 1] ?? ''}`;
+}
+
+/** Surname (last word) for compact labels, e.g. "Sharma 20 • Ali 14". */
+export function surname(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  return parts[parts.length - 1] ?? '';
+}

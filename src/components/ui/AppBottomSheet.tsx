@@ -9,10 +9,11 @@ import {
 type Props = {
   children: React.ReactNode;
   snapPoints?: (string | number)[];
+  onDismiss?: () => void;
 };
 
 export const AppBottomSheet = forwardRef<BottomSheetModal, Props>(function AppBottomSheet(
-  { children, snapPoints },
+  { children, snapPoints, onDismiss },
   ref,
 ) {
   const backdrop = useCallback(
@@ -25,6 +26,7 @@ export const AppBottomSheet = forwardRef<BottomSheetModal, Props>(function AppBo
   return (
     <BottomSheetModal
       ref={ref}
+      onDismiss={onDismiss}
       snapPoints={snapPoints}
       enableDynamicSizing={!snapPoints}
       backdropComponent={backdrop}

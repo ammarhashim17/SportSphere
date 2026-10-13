@@ -11,6 +11,11 @@ export type Tx = Parameters<Parameters<Db['transaction']>[0]>[0];
 /** Removes every locally stored row (used on sign-out and when a different user signs in). */
 export async function clearLocalData(): Promise<void> {
   await db.transaction(async (tx) => {
+    await tx.delete(schema.scoreCorrections);
+    await tx.delete(schema.deliveries);
+    await tx.delete(schema.innings);
+    await tx.delete(schema.playingXi);
+    await tx.delete(schema.matches);
     await tx.delete(schema.teamPlayers);
     await tx.delete(schema.players);
     await tx.delete(schema.teams);
