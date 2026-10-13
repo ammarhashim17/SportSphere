@@ -103,3 +103,11 @@ Phase 1 delivers a stable base. The codebase is prepared to begin **Phase 2 — 
 1. Teams and squads are ready to populate match playing XIs.
 2. Local database and outbox sync primitives are validated to support ball-by-ball delivery events.
 3. Live match scoring screen design (`design/stitch/live_match_scoring/`) is already staged in the repository.
+
+---
+
+## 6. Gate G0 Verification (Phase 2 Pre-flight)
+
+- **Production Bundle Export (`npx expo export --platform android --output-dir dist-check`):** **Passed** on Windows (`Android Bundled 1980 modules`, Hermes bytecode bundle generated `_expo/static/js/android/entry-*.hbc`, exit code 0).
+- **Hermes / NativeWind Private Properties Check:** Verified clean; no Hermes compiler private properties errors encountered on Windows.
+- **Verification Status:** **G0 passed on Windows.**

@@ -29,3 +29,5 @@ Thumbs.db
 
 # Drizzle migrations must NOT be ignored (tracked in git)
 !drizzle/
+
+expo-env.d.ts
