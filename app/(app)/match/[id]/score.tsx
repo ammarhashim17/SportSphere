@@ -39,9 +39,11 @@ import {
   undoLastDelivery,
 } from '@/features/scoring/deliveryRepository';
 import { useLiveScoring, type LiveScoring } from '@/features/scoring/useLiveScoring';
+import { useKeepAwake } from 'expo-keep-awake';
 import { useSyncStore } from '@/sync/syncStore';
 
 export default function LiveScoringScreen() {
+  useKeepAwake();
   const { id } = useLocalSearchParams<{ id: string }>();
   const live = useLiveScoring(id);
   if (!live.ready) return <View className="flex-1 bg-surface" />;
